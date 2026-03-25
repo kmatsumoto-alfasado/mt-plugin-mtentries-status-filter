@@ -1,7 +1,7 @@
 name: MTEntriesStatusFilter
 id  : MTEntriesStatusFilter
 key:  mtentriesstatusfilter
-version: 0.1
+version: 0.2
 author_link: http://alfasado.net/
 author_name: Alfasado Inc.
 l10n_class: MTEntriesStatusFilter::L10N
