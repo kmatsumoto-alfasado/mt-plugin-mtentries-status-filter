@@ -35,3 +35,30 @@ tags:
                                              };
                         }
                     }
+        Pages:
+            status_filter:
+                handler: >
+                    sub {
+                        my ( $ctx, $args, $cond ) = @_;
+                        my $app = MT->instance;
+                        my $terms = $ctx->{ terms };
+                        my $status_filter = $args->{ status_filter };
+                        my $scope;
+                        if ( ( ref $status_filter ) eq 'ARRAY' ) {
+                            $scope = @$status_filter[ 1 ];
+                            $status_filter = @$status_filter[ 0 ];
+                        }
+                        if ( $status_filter ) {
+                            my @status = split( /,/, $status_filter );
+                            if ( $scope && ( $scope eq 'preview' ) ) {
+                                if ( ( ref $app ) =~ /^MT::App::/ && $app->mode =~ /preview/ ) {
+                                    $terms->{ status } = \@status;
+                                }
+                            } else {
+                                $terms->{ status } = \@status;
+                            }
+                            $terms->{ id } = { op => '>',
+                                               value => 0,
+                                             };
+                        }
+                    }
