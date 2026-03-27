@@ -5,7 +5,7 @@ version: 0.2
 author_link: http://alfasado.net/
 author_name: Alfasado Inc.
 l10n_class: MTEntriesStatusFilter::L10N
-description: <__trans phrase="Add status_filter modifier to MTEntries.">
+description: <__trans phrase="Add status_filter modifier to MTEntries/MTPages.">
 tags:
     filters:
         Entries:
